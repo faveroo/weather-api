@@ -7,7 +7,7 @@ Desenvolvida com **GuzzleHTTP** e interface minimalista com imagens do **Unsplas
 
 ## 📸 Demonstração
 
-<img src="https://source.unsplash.com/1600x900/?minimalist,landscape" width="600" alt="Exemplo de fundo minimalista"/>
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" width="600" alt="Paisagem minimalista"/>
 
 ---
 
@@ -24,6 +24,7 @@ api/
 │
 └── public/
     ├── index.php             # Página principal com formulário e exibição do clima
+    ├── process.php           # Require para o process/process.php
     └── css/
         └── style.css         # Estilização visual do formulário e do resultado
 </code></pre>
