@@ -5,12 +5,6 @@ Desenvolvida com **GuzzleHTTP** e interface minimalista com imagens do **Unsplas
 
 ---
 
-## 📸 Demonstração
-
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" width="600" alt="Paisagem minimalista"/>
-
----
-
 ## 🧩 Estrutura do Projeto
 
 <pre><code>
