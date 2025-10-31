@@ -6,8 +6,12 @@ require '../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Dotenv\Dotenv;
 
-$key = '92aaa2e829d963450b6ae15ecac68165';
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
+$key = $_ENV['API_KEY'];
 $url = 'http://api.openweathermap.org/';
 
 $client = new Client([
