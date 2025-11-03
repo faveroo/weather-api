@@ -27,17 +27,24 @@ $error = $_SESSION['weather_error'] ?? null;
       <h1 class="text-center mb-4">Localização</h1>
 
       <form method="GET" action="./process.php">
-        <div class="mb-3">
-          <label for="cidade" class="form-label">Cidade</label>
-          <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Digite sua cidade" required>
-        </div>
+
+          <div class="mb-3">
+            <label for="pais" class="form-label">País (Código ISO): </label>
+            <select id="pais" name="pais" class="form-select" required>
+                        <option value="">Selecione um País</option>
+                <?php foreach($options as $option): ?>
+                        <option value="<?= $option['iso3'] ?>"><?= $option['country'] ?></option>
+                <?php endforeach; ?>
+            </select>
+          </div>
 
         <div class="mb-3">
-          <label for="pais" class="form-label">País (Código ISO)</label>
-          <select id="pais" name="pais" class="form-select" required>
-            <?php foreach($options as $option) echo $option; ?>
+          <label for="cidade" class="form-label">Cidade: </label>
+          <select name="cidade" id="cidade" class="form-select" required>
+                <option value="">Selection uma cidade</option>            
           </select>
         </div>
+
 
         <button type="submit" class="btn btn-dark w-100">Enviar</button>
       </form>
@@ -81,6 +88,30 @@ $error = $_SESSION['weather_error'] ?? null;
     <?php endif; ?>
   </div>
 
+  <script>
+    const cidadesPorPaisArray = <?= json_encode($options, JSON_UNESCAPED_UNICODE) ?>;
+
+    const cidadesPorPais = {};
+    cidadesPorPaisArray.forEach(c => {
+        cidadesPorPais[c.iso3] = c.cities;
+    });
+
+    const selectPais = document.getElementById('pais');
+    const selectCidade = document.getElementById('cidade');
+
+    selectPais.addEventListener('change', function() {
+        const pais = this.value;
+        selectCidade.innerHTML = '<option value="">Selecione uma cidade</option>';
+        if (cidadesPorPais[pais]) {
+            cidadesPorPais[pais].forEach(cidade => {
+                const option = document.createElement('option');
+                option.value = cidade;
+                option.textContent = cidade;
+                selectCidade.appendChild(option);
+            });
+        }
+    });
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
