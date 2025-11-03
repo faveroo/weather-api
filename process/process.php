@@ -22,6 +22,7 @@ $city = $_GET['cidade'] ?? null;
 $country = $_GET['pais'] ?? null;
 
 try {
+
 $geoResponse = $client->get("geo/1.0/direct", [
     'query' => [
         'q' => "$city,$country",
@@ -50,6 +51,22 @@ $weatherResponse = $client->get("data/2.5/weather", [
 ]);
 $weather = json_decode($weatherResponse->getBody(), true);
 $_SESSION['weather'] = $weather;
+
+$previsionsResponse = $client->get("data/2.5/forecast", [
+    'query' => [
+        'lat'=> $lat,
+        'lon' => $lon,
+        'appid' => $key,
+        'units' => 'metric',
+        'cnt' => 6
+    ]
+]);
+
+$previsions = json_decode($previsionsResponse->getBody(), true);
+$_SESSION['previsions'] = $previsions['list'];
+// echo "<pre>";
+// print_r($_SESSION['previsions']);
+// echo "<pre>";
 
 // echo $weatherString;
 header("Location: /");
