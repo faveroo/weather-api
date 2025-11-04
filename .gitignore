@@ -1,1 +1,4 @@
 .env
+/scripts
+/.vscode
+/json/countries_cities.json.*.bak
