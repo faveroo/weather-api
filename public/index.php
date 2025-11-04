@@ -2,7 +2,7 @@
 session_status() == PHP_SESSION_NONE ? session_start() : '';
 setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'Portuguese_Brazil');
 
-$options = require_once '../components/options.php';
+$options = json_decode(file_get_contents(__DIR__ . '/../json/countries_cities.json'), true);
 
 $weather = $_SESSION['weather'] ?? null;
 $previsions = $_SESSION['previsions'] ?? null;
@@ -106,7 +106,7 @@ $error = $_SESSION['weather_error'] ?? null;
   </div>
 
   <script>
-    const cidadesPorPaisArray = <?= json_encode($options, JSON_UNESCAPED_UNICODE) ?>;
+    const cidadesPorPaisArray = <?= json_encode($options, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>;
     const cidadesPorPais = {};
     cidadesPorPaisArray.forEach(c => cidadesPorPais[c.iso3] = c.cities);
 
