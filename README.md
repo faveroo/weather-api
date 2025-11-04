@@ -1,7 +1,7 @@
 # 🌤️ LocalWeather — Consulta de Clima por Cidade e País
 
 Aplicação simples em **PHP** que consome a **API OpenWeather** para exibir informações meteorológicas de uma cidade informada pelo usuário.  
-Desenvolvida com **GuzzleHTTP** e interface minimalista com imagens do **Unsplash**.
+Desenvolvida com **GuzzleHTTP** e interface minimalista.
 
 ---
 
