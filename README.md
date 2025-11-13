@@ -5,26 +5,6 @@ Desenvolvida com **GuzzleHTTP** e interface minimalista.
 
 ---
 
-## 🧩 Estrutura do Projeto
-
-<pre><code>
-api/
-│
-├── components/
-│   └── options.php           # Lista de países com código ISO
-│
-├── process/
-│   └── process.php           # Lógica de comunicação com a API OpenWeather
-│
-└── public/
-    ├── index.php             # Página principal com formulário e exibição do clima
-    ├── process.php           # Require para o process/process.php
-    └── css/
-        └── style.css         # Estilização visual do formulário e do resultado
-</code></pre>
-
----
-
 ## ⚙️ Tecnologias Utilizadas
 
 - **PHP 8+**
